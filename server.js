@@ -1,6 +1,9 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337, 'localhost');
-console.log('Server running at http://localhost:1337/');
+const express = require('express');
+const app = express();
+const port = 1337;
+app.get('/', (req, res) => {
+    res.send('<h1>Hello World from Docker and Node.js!</h1>');
+});
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
